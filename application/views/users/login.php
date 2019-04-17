@@ -54,7 +54,7 @@
                           <button type="submit" name="submit" class="btn btn-block btn-success btn-lg font-weight-medium">Login</a>
                         </div>
                       </form>    
-                      <a href="<?=base_url();?>users/register?>" class="auth-link text-black">Dont have an  account? <span class="font-weight-medium">Register here</span></a>              
+                      <a href="<?=base_url();?>users/register" class="auth-link text-black">Dont have an  account? <span class="font-weight-medium">Register here</span></a>              
                   </div>
                 </div>
                 <div class="col-lg-6 login-half-bg d-flex flex-row">
