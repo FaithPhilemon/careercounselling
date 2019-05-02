@@ -26,22 +26,11 @@
             <div class="row align-items-center d-flex flex-row">
               <div class="col-lg-6 text-lg-right pr-lg-4">
                 <h1 class="display-1 mb-0">Complete</h1>
+                <p> <h5>Proceed to login to see
+                    our career suggestions<h5></p>
               </div>
-              <?php  foreach($strength as $s):?>
-              <div class="">
-                <h2>Our advice to you!!!</h2>
-                <h2>Career suggestions</h2>
-                <p>
-                  <?=$s->careers;?>
-                </p>
-                <h2>Advice</h2>
-                <p>
-                  <?=$s->advice;?>
-                </p>
-              </div>
-              <?php endforeach;?>
             </div>
-                   <a class="btn btn-primary btn-lg font-weight-high pull-center" href="<?=base_url('users/logout');?>" style="color:black; background:#FFFFF0;margin-right:170px;height:60px;width:250px;"><h4>Logout</h4></a>
+                   <a class="btn btn-primary btn-lg font-weight-high pull-center" href="<?=base_url('users/logout');?>" style="color:black; background:#FFFFF0;margin-right:170px;height:60px;width:250px;"><h4>click here</h4></a>
 
           </div>
         </div>

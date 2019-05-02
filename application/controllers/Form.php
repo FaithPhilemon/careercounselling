@@ -29,10 +29,10 @@ class Form extends CI_Controller
                if(empty($user->strength_id)){
                 $this->Users_model->update($id,$data);
                 $this->session->set_flashdata('complete','Thank you for completing the form');
-                redirect('result');
+                redirect('courses/add');
             }else{
 
-                redirect('result');
+                redirect('/');
             }
 
         }

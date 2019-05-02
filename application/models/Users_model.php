@@ -83,6 +83,44 @@ class Users_model extends CI_Model
     }
 
 
+    // If user exist
+
+/*    public function user_check($username){
+
+        $this->db->from('user');
+        $this->db->where('username',$username){
+
+            if($query->num_rows()>0){
+                return false
+            }else{
+
+                return true;
+            }
+        }
+    }*/
+
+// Second login model. sessions not working properly with first
+
+ public function login_user($username,$password){
+
+      $this->db->select('*');
+      $this->db->from('users');
+      $this->db->where('username',$username);
+      $this->db->where('password',$password);
+
+      if($query=$this->db->get())
+      {
+          return $query->row_array();
+      }
+      else{
+        return false;
+      }
+
+}
+
+
+
+
 }
 
 /* End of file Users_model.php */
