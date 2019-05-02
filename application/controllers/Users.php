@@ -16,26 +16,37 @@ class Users extends CI_Controller
             $this->load->view('users/login'); 
         }else{
 
-        $user = $this->Users_model->login($username,$password);
+        $user = $this->Users_model->login_user($username,$password);
 
         //Vallidating users data
         if($user){
-            $data = array(
+
+            /*$data = array(
                 'user_id' => $user['id'],
                 'username' => $username,
                 'logged_in' => true,
-                );
+                'strength' => $user['strength_id'], 
+                );*/
             // Set session user_data
 
-            $this->session->set_userdata($data);
+            $this->session->set_userdata('user_id',$user['id']);
+            $this->session->set_userdata('username',$user['username']);
+            $this->session->set_userdata('strength',$user['strength_id']);
 
-            // Set message
-            $this->session->set_flashdata('login','You are currently logged in');
-            redirect('form/add');          
+             
+      
+            if ( $this->session->userdata('strength')=='1' ||  $this->session->userdata('strength')=='2'){
+                 redirect('profile');        
+            }else{
+
+                 redirect('form/add');
+
+            }
+
+            #$this->session->set_flashdata('login','You are currently logged in');
+                     
         }   else{
-
-            // Set login error
-
+        // Set login error
             $this->session->set_flashdata('fail','Invalid user name or password');
             redirect('users/login');
         }
@@ -48,6 +59,7 @@ class Users extends CI_Controller
         $this->session->unset_userdata('logged_in');
         $this->session->unset_userdata('user_id');
         $this->session->unset_userdata('Username');
+        #$this->session->unset_userdata('strength');
         $this->session->sess_destroy();
         redirect('users/login');
 
@@ -72,7 +84,7 @@ class Users extends CI_Controller
             );
 
                 $this->Users_model->insert($data); 
-                $this->session->set_flashdata('registered','Login here');
+                $this->session->set_flashdata('registered','Login to complete your registration');
                 redirect('users/login');
             
         }

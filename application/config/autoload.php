@@ -137,4 +137,6 @@ $autoload['model'] = array(
 	'Form_model',
 	'Strength_model',
 	'Users_model',
+	'Courses_model',
+	'Admin_model',
 );

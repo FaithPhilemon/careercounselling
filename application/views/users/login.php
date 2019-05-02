@@ -30,6 +30,11 @@
             <div class="col-lg-8 mx-auto">
               <div class="row">
                 <div class="col-lg-6 bg-white">
+                  <?php if($this->session->flashdata('registered')):?>
+                    <div class="alert alert-success">
+                      <?php echo ($this->session->flashdata('registered'));?>
+                    </div>
+                  <?php endif;?>
                   <div class="auth-form-light text-left p-5">
                     <?php if($this->session->flashdata('fail')):?>
                       <div class="alert alert-danger">
@@ -54,7 +59,7 @@
                           <button type="submit" name="submit" class="btn btn-block btn-success btn-lg font-weight-medium">Login</a>
                         </div>
                       </form>    
-                      <a href="<?=base_url();?>users/register" class="auth-link text-black">Dont have an  account? <span class="font-weight-medium">Register here</span></a>              
+                      <a href="<?=base_url();?>users/register?>" class="auth-link text-black">Dont have an  account? <span class="font-weight-medium">Register here</span></a>              
                   </div>
                 </div>
                 <div class="col-lg-6 login-half-bg d-flex flex-row">
